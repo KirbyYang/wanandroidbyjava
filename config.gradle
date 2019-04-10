@@ -1,0 +1,79 @@
+ext {
+
+    /**
+     * 当==true时为集成模式，==false时为组件模式
+     * */
+    isModule = true
+
+    /**
+     * 打包序列号
+     * */
+    buildPackageNum = "01"  //代表最后一个01, Cbb_v2.0.0beta1_2018_06_09_01
+
+    android = [
+            compileSdkVersion: 28,            //编译版本
+            buildToolsVersion: '28.0.3',      //构建版本
+            minSdkVersion    : 21,            //最小sdk版本
+            targetSdkVersion : 28,            //测试最高支持版本（超过以兼容模式运行）
+            versionCode      : 1,            //版本号
+            versionName      : '1.0.0'        //1代表第几次提测，release:2.0.0  debug:2.0.0beta1
+    ]
+
+    /**
+     * 公共依赖版本  暂未使用
+     * */
+    supportLibrary = "28.0.0"
+    dependencies = [
+            "appcompat-v7": "com.android.support:appcompat-v7:${supportLibrary}"
+    ]
+
+    /**
+     * 应用程序Id
+     * */
+    appId = [
+            "app"              : "com.wanandroid.java",
+//            "modulestudy"      : "com.longrise.android.bbt.modulestudy",
+//            "modulethhp"       : "com.longrise.android.bbt.modulethhp",
+//            "moduletrainreport": "com.longrise.android.bbt.moduletrainreport",
+//            "modulewallet"     : "com.longrise.android.bbt.modulewallet",
+//            "moduleim"         : "com.longrise.android.bbt.moduleim",
+//            "moduletestonline" : "com.longrise.android.bbt.moduletestonline"
+//            "onlinemodule"     : "com.longrise.android.bbt.onlinemodule"
+
+    ]
+
+    /**
+     * 正式环境包地址
+     * */
+    serviceReleaseUrl = [
+            "bbUrl"       : "http://app.yxybb.com",  //保宝
+            "examUrl"     : "https://exam.tasc.org.cn",  //在线测评
+            "byUrl"       : "http://www.insyi.cn/insy",  //保易
+            "kckpUrl"     : "http://jgkckp.henanga.gov.cn/restservices/hnh5rest/",  //快处快赔
+    ]
+
+    /**
+     * 测试环境包地址
+     * */
+    serviceDebugUrl = [
+            "bbUrl"       : "http://59.173.241.186:51108",  //保宝 http://wuhan.yxybb.com后续还是需要切换到这个域名
+            "examUrl"     : "http://59.173.241.186:51108",  //在线测评
+            "byUrl"       : "http://59.173.241.186:8042/insytest",  //保易
+            "kckpUrl"     : "http://211.154.149.115:8048/restservices/hnh5rest/",  //快处快赔
+    ]
+
+    /***
+     * 打包命名规则：
+     * debug:       Cbb_v2.0.0beta1_2018_06_01_03
+     * release:     Zbb_v2.0.0_2018_06_01_03
+     * */
+
+    /**
+     * bb统一API严格模式，true开启，false关闭
+     * */
+    strictMode = false;
+
+//    test = "Hello"
+//    println "aaa${rootProject.ext.test}"
+
+}

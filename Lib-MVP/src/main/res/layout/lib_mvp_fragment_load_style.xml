@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <!-- 正在加载 -->
+    <ViewStub
+        android:id="@+id/vs_loading_fragment_load_style_lib_mvp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout="@layout/lib_mvp_loading_fragment_load_style"/>
+
+    <!-- 加载出错 -->
+    <ViewStub
+        android:id="@+id/vs_loading_error_fragment_load_style_lib_mvp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/lib_mvp_error_fragment_load_style"/>
+
+    <!-- 加载无数据 -->
+    <ViewStub
+        android:id="@+id/vs_loading_empty_fragment_load_style_lib_mvp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/lib_mvp_empty_fragment_load_style"/>
+
+</FrameLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/lib_mvp_load_view_activity_load_style"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
+    android:background="@drawable/lib_mvp_shape_loading_background"
+    android:orientation="horizontal">
+
+    <!--style="@android:style/Widget.Holo.Light.ProgressBar"-->
+    <ProgressBar
+        style="@android:style/Widget.Holo.Light.ProgressBar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:padding="0dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="8dp"
+        android:maxLines="1"
+        android:text="@string/lib_mvp_string_loading_activity_load_style"
+        android:textColor="@color/lib_mvp_color_ff"
+        android:textSize="12sp"/>
+
+</LinearLayout>

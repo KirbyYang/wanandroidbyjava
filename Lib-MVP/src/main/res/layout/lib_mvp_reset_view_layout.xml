@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    android:id="@+id/view_reset_load_style"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/lib_mvp_selector_error_reset"
+    android:paddingBottom="4dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="4dp"
+    android:text="@string/lib_mvp_string_error_reset"
+    android:textColor="@color/lib_mvp_selector_text_color_error_reset"
+    android:textSize="12sp"/>
