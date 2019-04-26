@@ -3,6 +3,8 @@ apply plugin: 'com.android.application'
 //map映射集合
 def cfg = rootProject.ext.android
 def appid = rootProject.ext.appId
+def dep = rootProject.ext.dependencies
+
 
 android {
     compileSdkVersion cfg.compileSdkVersion
@@ -17,7 +19,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         resConfigs 'en'
         ndk {
-            abiFilters "armeabi"
+            abiFilters "armeabi", "x86"
         }
     }
     buildTypes {
@@ -40,12 +42,28 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //    debugImplementation project(path: ':Lib-MVP', configuration: 'debug')
     //    releaseImplementation project(path: ':Lib-MVP', configuration: 'release')
-    implementation project(':Lib-MVP')
+//    compile project(':Lib-MVP')
+    //-----------base------------
+    compile dep["appcompat-v7"]
+    compile dep["design"]
+    compile 'com.android.support:recyclerview-v7:28.0.0'
+    compile('com.android.support:support-v4:28.0.0') {
+        force = true;
+    }
+    compile dep["constraint-layout"]
+    //-----------rx------------
+    compile dep["rxjava"]
+    compile dep["rxandroid"]
+//    implementation rootProject.ext.dependencies["rxbinding"]
+    compile dep["rxpermissions"]
+
+    //------------di-----------
+    compile dep["butterknife"]
+    annotationProcessor dep["butterknife-compiler"]
 }

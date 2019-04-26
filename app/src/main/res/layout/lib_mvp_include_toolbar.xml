@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout
+    android:id="@+id/abl_activity_delegate_lib_mvp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toolbar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@null"
+    toolbar:elevation="0dp">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_activity_delegate_lib_mvp"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/colorPrimary"
+        toolbar:contentInsetLeft="0dp"
+        toolbar:contentInsetStart="0dp"
+        toolbar:contentInsetStartWithNavigation="0dp"
+        toolbar:navigationIcon="@mipmap/lib_mvp_titlebar_ic_back"
+        toolbar:titleTextAppearance="@style/Lib_MVP_Toolbar_Title_Text">
+
+        <ViewStub
+            android:id="@+id/vs_right_icon_titlebar_lib_mvp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout="@layout/lib_mvp_vs_right_btn_layout"/>
+
+        <ViewStub
+            android:id="@+id/vs_right_text_titlebar_lib_mvp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout="@layout/lib_mvp_vs_right_text_layout"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <View
+        android:id="@+id/bb_toolbar_bottom_line"
+        style="@style/Lib_MVP_Divider_Toolbar_Bottom_Line"
+        android:layout_gravity="bottom"/>
+
+</android.support.design.widget.AppBarLayout>
+

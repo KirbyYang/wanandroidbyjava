@@ -1,2 +1,1 @@
-include ':app',
-        ':Lib-MVP'
+include ':app'

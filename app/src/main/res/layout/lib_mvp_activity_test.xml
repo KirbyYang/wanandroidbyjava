@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fl_test_load_style"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <TextView
+            android:id="@+id/loadingStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="测试当前加载样式效果"
+            android:textSize="18sp"/>
+
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/lib_mvp_no_network"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/lib_mvp_no_network"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/lib_mvp_no_network"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/lib_mvp_no_network"/>
+
+    <Button
+        android:id="@+id/recycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="兜底回收"/>
+
+    <Button
+        android:id="@+id/leak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="回收泄漏"/>
+
+</LinearLayout>
