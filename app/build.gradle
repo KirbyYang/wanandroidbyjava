@@ -4,6 +4,11 @@ apply plugin: 'com.android.application'
 def cfg = rootProject.ext.android
 def appid = rootProject.ext.appId
 def dep = rootProject.ext.dependencies
+def signingFilePath = 'signing.gradle'
+def performSigning = file(signingFilePath).exists()
+if (performSigning) {
+    apply from: signingFilePath
+}
 
 
 android {
@@ -22,13 +27,30 @@ android {
             abiFilters "armeabi", "x86"
         }
     }
+
+    if (performSigning) {
+        signingConfigs {
+            release {
+                storeFile file(project.signing.storeFilePath)
+                storePassword project.signing.storePassword
+                keyAlias project.signing.keyAlias
+                keyPassword project.signing.keyPassword
+                v1SigningEnabled true
+                v2SigningEnabled true
+            }
+        }
+    }
+
     buildTypes {
         release {
             debuggable false
-            minifyEnabled false
-            shrinkResources false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             zipAlignEnabled true
+            if (performSigning) {
+                signingConfig signingConfigs.release
+            }
         }
         debug {
             debuggable true
@@ -38,6 +60,20 @@ android {
             zipAlignEnabled true
         }
     }
+
+    applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                def pkName = buildType.name.equals("release") ? "Zwan" : "Cwan"
+                def fileName = pkName + "_v" + defaultConfig.versionName + "_${currentDate()}" + rootProject.ext.buildPackageNum + ".apk"
+                outputFileName = fileName
+            }
+    }
+
+}
+
+def currentDate() {
+    return new Date().format("yyyy_MM_dd_", TimeZone.getTimeZone("UTC"))
 }
 
 dependencies {
