@@ -1,0 +1,81 @@
+apply plugin: 'com.android.library'
+def cfg = rootProject.ext.android
+def dep = rootProject.ext.dependencies
+def sReleaseUrl = rootProject.ext.serviceReleaseUrl
+def sDebugUrl = rootProject.ext.serviceDebugUrl
+
+android {
+    compileSdkVersion cfg.compileSdkVersion
+    buildToolsVersion cfg.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdkVersion
+        versionCode cfg.versionCode
+        versionName cfg.versionName
+        //由于第三方库，如appcompat-v7的引入，库中包含了大量的国际化资源，根据情况通过配置删除。
+        //仅保留英文资源
+        resConfigs 'en'
+
+    }
+
+    buildTypes {
+        release {
+//            resValue("string", "baseUrl", sReleaseUrl["bbUrl"]) //正式打包地址
+        }
+        debug {
+//            resValue("string", "baseUrl", sDebugUrl["bbUrl"]) //测试包地址
+        }
+    }
+
+    publishNonDefault true  //改变BuildConfig 的值
+
+}
+
+configurations {  // 改变BuildConfig 的值
+    debug
+    release
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compile dep["appcompat-v7"]
+    compile('com.android.support:support-v4:28.0.0') {
+        force = true
+    }
+    compile dep["design"]
+    compile dep["recyclerview"]
+    compile dep["constraint-layout"]
+    //-----------rx------------
+    compile dep["rxjava"]
+    compile dep["rxandroid"]
+    compile dep["rxpermissions"]
+    //-----------net------------
+    compile dep["retrofit"]
+    compile dep["retrofit-cookie"]
+    compile dep["adapter-rxjava"]
+    compile dep["okhttp"]
+    compile dep["logging-interceptor"]
+    compile dep["fastjson"]
+    compile dep["gson"]
+
+    //------------di-----------
+    api dep["butterknife"]
+    //    annotationProcessor dep["butterknife-compiler"]
+
+    //------------ui-----------
+    compile dep["banner"]
+    compile dep["glide"]
+    compile dep["actionBarEx"]
+    compile dep["materialProgressBar"]
+    compile dep["SmartRefreshLayout"]
+    compile dep["MultiStateView"]
+    compile dep["RevealLayout"]
+    compile dep["BaseRecyclerViewAdapterHelper"]
+    compile dep["roundedimageview"]
+
+}

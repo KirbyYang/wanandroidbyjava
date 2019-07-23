@@ -2,7 +2,7 @@ package com.wanandroid.java.app;
 
 import android.app.Application;
 
-import com.wanandroid.java.base.init.MvpManager;
+import com.wanandroid.java.modulebase.base.init.MvpManager;
 
 
 /**

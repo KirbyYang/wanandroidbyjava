@@ -1,14 +1,9 @@
 ext {
 
     /**
-     * 当==true时为集成模式，==false时为组件模式
-     * */
-    isModule = true
-
-    /**
      * 打包序列号
      * */
-    buildPackageNum = "02"  //代表最后一个01, Cbb_v2.0.0beta1_2018_06_09_01
+    buildPackageNum = "01"  //代表最后一个01, Cbb_v2.0.0beta1_2018_06_09_01
 
     android = [
             compileSdkVersion: 28,            //编译版本
@@ -23,35 +18,20 @@ ext {
      * 应用程序Id
      * */
     appId = [
-            "app"              : "com.wanandroid.java",
-//            "modulestudy"      : "com.longrise.android.bbt.modulestudy",
-//            "modulethhp"       : "com.longrise.android.bbt.modulethhp",
-//            "moduletrainreport": "com.longrise.android.bbt.moduletrainreport",
-//            "modulewallet"     : "com.longrise.android.bbt.modulewallet",
-//            "moduleim"         : "com.longrise.android.bbt.moduleim",
-//            "moduletestonline" : "com.longrise.android.bbt.moduletestonline"
-//            "onlinemodule"     : "com.longrise.android.bbt.onlinemodule"
-
+            "app"       : "com.wanandroid.java",
+            "modulemain": "com.wanandroid.java.modulemain",
     ]
 
     /**
      * 正式环境包地址
      * */
     serviceReleaseUrl = [
-            "bbUrl"       : "http://app.yxybb.com",  //保宝
-            "examUrl"     : "https://exam.tasc.org.cn",  //在线测评
-            "byUrl"       : "http://www.insyi.cn/insy",  //保易
-            "kckpUrl"     : "http://jgkckp.henanga.gov.cn/restservices/hnh5rest/",  //快处快赔
     ]
 
     /**
      * 测试环境包地址
      * */
     serviceDebugUrl = [
-            "bbUrl"       : "http://59.173.241.186:51108",  //保宝 http://wuhan.yxybb.com后续还是需要切换到这个域名
-            "examUrl"     : "http://59.173.241.186:51108",  //在线测评
-            "byUrl"       : "http://59.173.241.186:8042/insytest",  //保易
-            "kckpUrl"     : "http://211.154.149.115:8048/restservices/hnh5rest/",  //快处快赔
     ]
 
     /***
@@ -69,17 +49,19 @@ ext {
 //    println "aaa${rootProject.ext.test}"
 
     version = [
-            supportLibraryVersion   : "28.0.0",
-            smartrefreshVersion     : "1.1.0-alpha-20",
-            okhttpVersion           : "3.9.0",
-            retrofitVersion         : "2.4.0",
-            glideVersion            : "4.8.0",
-            dagger2Version          : "2.17",
-            butterknifeVersion      : "8.8.1",
-            fragmentationVersion    : "1.3.6",
-            leakcanaryVersion       : "1.5.4",
-            rxlifecycle2Version     : "2.2.2",
-            espressoVersion         : "3.0.1",
+            supportLibraryVersion: "28.0.0",
+            smartrefreshVersion  : "1.1.0-alpha-20",
+            okhttpVersion        : "3.11.0",
+            retrofitVersion      : "2.4.0",
+            glideVersion         : "4.8.0",
+            dagger2Version       : "2.17",
+            butterknifeVersion   : "8.8.1",
+            fragmentationVersion : "1.3.6",
+            leakcanaryVersion    : "1.5.4",
+            rxlifecycle2Version  : "2.2.2",
+            espressoVersion      : "3.0.1",
+            actionBarEx          : "3.0.0",
+            materialProgressBar  : "1.4.2",
     ]
 
     /**
@@ -87,17 +69,21 @@ ext {
      * */
     dependencies = [
             //base
-            "appcompat-v7"                      : "com.android.support:appcompat-v7:${version["supportLibraryVersion"]}",
-            "cardview-v7"                       : "com.android.support:cardview-v7:${version["supportLibraryVersion"]}",
-            "preference-v7"                     : "com.android.support:preference-v7:${version["supportLibraryVersion"]}",
-            "preference-v14"                    : "com.android.support:preference-v14:${version["supportLibraryVersion"]}",
-            "design"                            : "com.android.support:design:${version["supportLibraryVersion"]}",
-            "constraint-layout"                 : "com.android.support.constraint:constraint-layout:1.1.3",
+            "appcompat-v7"        : "com.android.support:appcompat-v7:${version["supportLibraryVersion"]}",
+            "cardview-v7"         : "com.android.support:cardview-v7:${version["supportLibraryVersion"]}",
+            "preference-v7"       : "com.android.support:preference-v7:${version["supportLibraryVersion"]}",
+            "preference-v14"      : "com.android.support:preference-v14:${version["supportLibraryVersion"]}",
+            "design"              : "com.android.support:design:${version["supportLibraryVersion"]}",
+            "recyclerview"        : "com.android.support:recyclerview-v7:${version["supportLibraryVersion"]}",
+            "constraint-layout"   : "com.android.support.constraint:constraint-layout:1.1.3",
 
             //ui
-//            "SmartRefreshLayout"                :"com.scwang.smartrefresh:SmartRefreshLayout:${version["smartrefreshVersion"]}",
+            "SmartRefreshLayout"  : "com.scwang.smartrefresh:SmartRefreshLayout:${version["smartrefreshVersion"]}",
+            "MultiStateView"      : 'com.github.Kennyc1012:MultiStateView:1.3.2',
+            roundedimageview       : "com.makeramen:roundedimageview:2.3.0",
+            "RevealLayout"        : 'com.github.goweii:RevealLayout:1.1.1',
 //            "SmartRefreshHeader"                : "com.scwang.smartrefresh:SmartRefreshHeader:${version["smartrefreshVersion"]}",
-//            "banner"                            : "com.youth.banner:banner:1.4.10",
+            "banner"              : "com.youth.banner:banner:1.4.10",
 //            "VerticalTabLayout"                 : "q.rorbin:VerticalTabLayout:1.2.5",
 //            "flowlayout-lib"                    : "com.hyman:flowlayout-lib:1.1.2",
 //            "agentweb"                          : "com.just.agentweb:agentweb:4.0.2",
@@ -106,23 +92,27 @@ ext {
 //            "multipleStatusView"                : "com.classic.common:multiple-status-view:1.6",
 
             //net
-//            "gson"                              : "com.google.code.gson:gson:2.8.2",
-//            "okhttp"                            : "com.squareup.okhttp3:okhttp:${version["okhttpVersion"]}",
+            "gson"                : "com.google.code.gson:gson:2.8.2",
+            "fastjson"            : "com.alibaba:fastjson:1.1.70.android",
+            "okhttp"              : "com.squareup.okhttp3:okhttp:${version["okhttpVersion"]}",
+            "logging-interceptor" : "com.squareup.okhttp3:logging-interceptor:3.11.0",
 //            "logging-interceptor"               : "com.squareup.okhttp3:logging-interceptor:${version["okhttpVersion"]}",
-//            "retrofit"                          : "com.squareup.retrofit2:retrofit:${version["retrofitVersion"]}",
+            "retrofit"            : "com.squareup.retrofit2:retrofit:${version["retrofitVersion"]}",
+            "retrofit-cookie"     : "com.github.franmontiel:PersistentCookieJar:v1.0.1",
+            "adapter-rxjava"      : "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitVersion"]}",
 //            "converter-gson"                    : "com.squareup.retrofit2:converter-gson:${version["retrofitVersion"]}",
 //            "adapter-rxjava2"                   : "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitVersion"]}",
-//            "glide"                             : "com.github.bumptech.glide:glide:${version["glideVersion"]}",
-//            "glide_compiler"                    : "com.github.bumptech.glide:compiler:${version["glideVersion"]}",
+            "glide"               : "com.github.bumptech.glide:glide:${version["glideVersion"]}",
+            "glide_compiler"      : "com.github.bumptech.glide:compiler:${version["glideVersion"]}",
 
             //dao
 //            "greendao"                          : "org.greenrobot:greendao:3.2.2",
 
             //rx
-            "rxjava"                            : "io.reactivex.rxjava2:rxjava:2.0.1",
-            "rxandroid"                         : "io.reactivex.rxjava2:rxandroid:2.0.1",
+            "rxjava"              : "io.reactivex.rxjava2:rxjava:2.0.1",
+            "rxandroid"           : "io.reactivex.rxjava2:rxandroid:2.0.1",
 //            "rxbinding"                         : "com.jakewharton.rxbinding2:rxbinding:2.1.0",
-            "rxpermissions"                     : "com.tbruyelle.rxpermissions2:rxpermissions:0.9.3@aar",
+            "rxpermissions"       : "com.tbruyelle.rxpermissions2:rxpermissions:0.9.3@aar",
 //            "rxbus"                             : "com.hwangjr.rxbus:rxbus:2.0.1",
 
             //di
@@ -132,11 +122,11 @@ ext {
 //            "dagger2-android-support"            : "com.google.dagger:dagger-android-support:${version["dagger2Version"]}",
 //            "dagger2-android-processor"          : "com.google.dagger:dagger-android-processor:${version["dagger2Version"]}",
 //            "javax_annotation"                  : "org.glassfish:javax.annotation:10.0-b28",
-            "butterknife"                       : "com.jakewharton:butterknife:8.8.1",
-            "butterknife-compiler"              : "com.jakewharton:butterknife-compiler:8.8.1",
+            "butterknife"         : "com.jakewharton:butterknife:8.8.1",
+            "butterknife-compiler": "com.jakewharton:butterknife-compiler:8.8.1",
 
             //multidex
-            "multidex"                          : "com.android.support:multidex:1.0.3",
+            "multidex"            : "com.android.support:multidex:1.0.3",
 
             //leakcanary
 //            "leakcanary-android"                : "com.squareup.leakcanary:leakcanary-android:${version["leakcanaryVersion"]}",
@@ -147,7 +137,7 @@ ext {
 
             //tools
 //            "lottie"                            : "com.airbnb.android:lottie:2.3.0",
-//            "BaseRecyclerViewAdapterHelper"     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46",
+            "BaseRecyclerViewAdapterHelper"     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46",
 //            "fragmentation"                     : "me.yokeyword:fragmentation:${version["fragmentationVersion"]}",
 //            "fragmentation-swipeback"           : "me.yokeyword:fragmentation-swipeback:${version["fragmentationVersion"]}",
 //            "crashreport_upgrade"               : "com.tencent.bugly:crashreport_upgrade:latest.release",
@@ -158,6 +148,8 @@ ext {
 //            "PersistentCookieJar"               : "com.github.franmontiel:PersistentCookieJar:v1.0.1",
 //            "eventbus"                          : "org.greenrobot:eventbus:3.1.1",
 //            "androideventbus"                   : "org.simple:androideventbus:1.0.5.1",
+            actionBarEx           : "com.github.goweii:ActionBarEx:${version["actionBarEx"]}",
+            materialProgressBar   : "me.zhanghai.android.materialprogressbar:library:${version["materialProgressBar"]}",
 
             //ui test
 //            "espresso-core"                     : "com.android.support.test.espresso:espresso-core:3.0.2",

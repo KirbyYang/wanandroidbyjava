@@ -24,7 +24,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         resConfigs 'en'
         ndk {
-            abiFilters "armeabi", "x86"
+            abiFilters "armeabi-v7a"
         }
     }
 
@@ -84,22 +84,14 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //    debugImplementation project(path: ':Lib-MVP', configuration: 'debug')
     //    releaseImplementation project(path: ':Lib-MVP', configuration: 'release')
-//    compile project(':Lib-MVP')
-    //-----------base------------
-    compile dep["appcompat-v7"]
-    compile dep["design"]
-    compile 'com.android.support:recyclerview-v7:28.0.0'
-    compile('com.android.support:support-v4:28.0.0') {
-        force = true;
+    compile project(':modulebase')
+    if (!isRunAlone.toBoolean()) {
+        implementation project(':modulemain')
     }
-    compile dep["constraint-layout"]
-    //-----------rx------------
-    compile dep["rxjava"]
-    compile dep["rxandroid"]
-//    implementation rootProject.ext.dependencies["rxbinding"]
-    compile dep["rxpermissions"]
-
-    //------------di-----------
-    compile dep["butterknife"]
+    //-----------base------------
+    compile('com.android.support:support-v4:28.0.0') {
+        force = true
+    }
     annotationProcessor dep["butterknife-compiler"]
+
 }
